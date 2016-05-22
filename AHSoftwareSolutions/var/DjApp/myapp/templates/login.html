@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+{% block content %}
+      <h2>Login</h2>
+      {% if message %}
+      <p>
+      <b>{{message}}</b>
+      </p>
+      {% endif %}
+      <form action="" method="post">{% csrf_token %}
+      {{form.as_p}}
+      </br>
+      <a href="https://hectorgoan.noip.me" class="btn btn-danger" role="button">Volver</a>
+      <input type="submit" value="Entrar" class="btn btn-success" />
+      </form>
+      </br>
+      <p>
+	      <a href="https://hectorgoan.noip.me/miapp/recuperarPasswd/" class="btn btn-info" role="button">Recuperar Contraseña</a>
+      </p>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+{% block content %}
+      <h2>Editar cuenta: {{user.username}}</h2>
+      <p><h3><a class="text-info">Nombre:</a> {{user.first_name}}</h3></p>
+      <p><h3><a class="text-info">E-Mail:</a> {{user.email}}</h3></p>
+      <p><h3><a class="text-info">Dirección:</a> {{user.last_name}}</h3></p>
+      </br>
+      <hr>    
+      </br>
+      <h3>Modificar datos personales</h3>
+      </br>
+      {% if message %}
+      <p>
+      <b>{{message}}</b>
+      </p>
+      {% endif %}
+      <form action="" method="post">{% csrf_token %}
+      {{form.as_p}}
+      </br>
+      <a href="https://hectorgoan.noip.me/miapp" class="btn btn-danger" role="button">Cancelar</a>
+      <input type="submit" value="Guardar" class="btn btn-success" />
+      </form>
+      </br>
+      <hr>
+      </br>
+      <h3>Modificar web personal</h3>
+      </br>
+      <p><a href="http://hectorgoan.noip.me/~{{user.username}}" target="_blank">hectorgoan.noip.me/~{{user.username}}</a></p>
+      <a href="https://hectorgoan.noip.me/miapp/configureBlog" class="btn btn-primary" role="button" target="_blank">Crear Blog</a>
+      <a href="https://hectorgoan.noip.me/miapp/deleteBlog" class="btn btn-danger" role="button">Eliminar Blog</a>
+      </br>
+      </br>
+      <p><small>Si se elimina el blog, se puede crear una web personal subiéndola a public_html mediante la <a href="https://hectorgoan.noip.me/ftpclient/" target="_blank">nube personal</a></small></p>      
+      </br>
+      <hr>
+      </br>
+      <h3>Cambiar contraseña</h3>
+      </br>
+      <p><small>No se preocupe si la pierde, existe sistema de recuperación en la pantalla de login</small></p>
+      <a href="https://hectorgoan.noip.me/miapp/changePasswd" class="btn btn-primary" role="button">Cambiar contraseña</a>
+      </br>
+      </br>
+      <hr>
+      </br>
+      <h3>Cancelar cuenta</h3>
+      </br>
+      <p><small>Si elimina el usuario, perderá todos sus archivos y no podrá entrar en el sistema</small></p>
+      <a href="https://hectorgoan.noip.me/miapp/checkout" class="btn btn-danger" role="button">Eliminar usuario</a>
+
+       
+      
+
+{% endblock %}
