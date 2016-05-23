@@ -19,16 +19,16 @@ def registerView(request):
 		if form.is_valid():
 			 
 			try:
-				aNick = form.cleaned_data['Nick']
-				anEmail = form.cleaned_data['Email']
-				aNombre = form.cleaned_data['Nombre']
+				aNick = form.cleaned_data['Nick'].encode("utf-8")
+				anEmail = form.cleaned_data['Email'].encode("utf-8")
+				aNombre = form.cleaned_data['Nombre'].encode("utf-8")
 				
 				if User.objects.filter(email=anEmail):
 					aHeader = "Error"
 					aMessage = "El email "+anEmail+" ya tiene un usuario registrado"
 					someExtraInfo = "Lo sentimos "+aNombre+", vuelve a probar con otra cuenta de correo"
 					aButtonMsg = "Ok"
-					anURL = "https://hectorgoan.noip.me/miapp/settings"
+					anURL = "https://hectorgoan.noip.me/"
 					aButton = "danger"
 					return render_to_response("recoverPrinter.html", {"header": aHeader, "message": aMessage, "extrainfo": someExtraInfo, "url": anURL, "buttonmsg": aButtonMsg, "button": aButton})
 				
@@ -36,7 +36,7 @@ def registerView(request):
 				aDireccion = form.cleaned_data['Direccion']
 				aRol = form.cleaned_data['Rol']
 			
-				aPassword = "dia"+random.choice('abcdefghijklmnopqrstuvwxyz')+"web"+random.choice('?!&%/$')				
+				aPassword = "dia"+random.choice('abcdefghijklmnopqrstuvwxyz')+"web"+random.choice('123456789')				
 				
 				#Security measure, even if someone by any chance discovers the number & name of the arguments to call the cgi 
 				#he/she'll need to know the hash to actually be able to run it
@@ -86,7 +86,7 @@ def recoverPasswordView(request):
 	if request.method == 'POST':
 		form = RecoverPasswordForm(request.POST)
 		if form.is_valid():							 
-			anEmail = form.cleaned_data['Email']
+			anEmail = form.cleaned_data['Email'].encode("utf-8")
 			
 			#Security measure, even if someone by any chance discovers the number & name of the arguments to call the cgi 
 			#he/she'll need to know the hash to actually be able to run it
@@ -103,7 +103,7 @@ def recoverPasswordView(request):
 				return render_to_response("printer.html", {"header": aHeader, "message": aMessage, "extrainfo": someExtraInfo})	
 				
 			user = User.objects.get(email = anEmail)
-			aPassword = "web"+random.choice('?!&%/$')+"dia"+random.choice('abcdefghijklmnopqrstuvwxyz')
+			aPassword = "web"+random.choice('123456789')+"dia"+random.choice('abcdefghijklmnopqrstuvwxyz')
 			#aPassword = "paco"
 			user.set_password(aPassword)
 			user.save()
@@ -134,8 +134,8 @@ def changePasswordView(request):
 	if request.method == 'POST':
 		form = ChangePasswordForm(request.POST)
 		if form.is_valid():
-			aPassword1 = form.cleaned_data['NewPassword']
-			aPassword2 = form.cleaned_data['RepeatPassword']
+			aPassword1 = form.cleaned_data['NewPassword'].encode("utf-8")
+			aPassword2 = form.cleaned_data['RepeatPassword'].encode("utf-8")
 			aPassword = str(aPassword1)
 			
 			#Security measure, even if someone by any chance discovers the number & name of the arguments to call the cgi 

@@ -20,6 +20,9 @@ if (length($_nick) != 0)
 	my $homePath ="/home/" . $_nick . "/";
 	rmtree($homePath, 1, 1 );
 	
+	chdir "/var/www/moodle/";
+	system("moosh -n user-delete ".$_nick);
+	
 }
 
 

@@ -13,13 +13,9 @@ DynGig::Util::Setuid->sudo( 'root' );
 #Recogida de argumentos
 my $_nick;
 $_nick = param('nick');
-my $_password;
-$_password = param('password');
+my $_email;
+$_email = param('email');
 
-#Cambio de contraseña
-my $user;
-$user = Linux::usermod->new($_nick);
-$user->set(password, $_password);
-
+#Cambio de mail
 chdir "/var/www/moodle/";
-system("moosh -n user-mod --password ".$_password." ".$_nick);
+system("moosh -n user-mod --email ".$_email." ".$_nick);

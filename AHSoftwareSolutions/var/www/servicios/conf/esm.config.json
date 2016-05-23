@@ -1,0 +1,69 @@
+{
+    "esm": {
+        "version": "2.5",
+        "website": "http://www.ezservermonitor.com",
+        "check_updates": true,
+        "auto_refresh": 0,
+        "theme": "blue",
+        "custom_title": ""
+    },
+    "cpu": {
+        "enable_temperature": false
+    },
+    "disk": {
+        "show_tmpfs": false,
+        "show_filesystem": false
+    },
+    "ping": {
+        "hosts": [
+            "facebook.com",
+            "google.com",
+            "yahoo.com"
+        ]
+    },
+    "last_login": {
+        "enable": false,
+        "max": 5
+    },
+    "services": {
+        "show_port": false,
+        "list": [
+            {
+                "name": "DiaWeb",
+                "host": "localhost",
+                "port": 80,
+                "protocol": "tcp"
+            },
+            {
+                "name": "Moodle",
+                "host": "localhost",
+                "port": 80,
+                "protocol": "tcp"
+            },
+            {
+                "name": "Blogs Personales",
+                "host": "localhost",
+                "port": 80,
+                "protocol": "tcp"
+            },
+            {
+                "name": "Nube Personal",
+                "host": "localhost",
+                "port": 21,
+                "protocol": "tcp"
+            },
+            {
+                "name": "Apuntes",
+                "host": "localhost",
+                "port": 21,
+                "protocol": "tcp"
+            },
+            {
+                "name": "SSH",
+                "host": "localhost",
+                "port": 130,
+                "protocol": "tcp"
+            }
+        ]
+    }
+}

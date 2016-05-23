@@ -1,1 +1,11 @@
-hola amigo, bienvenido
+Bienvenido a DiaWeb 2.0
+
+Desde la administración de este servidor te recomendamos hacer un uso responsable del sistema y de sus funciones.
+Entre las mismas:
+	
+	-Apuntes: Esta funcionalidad no contempla ninguna recomendación de uso responsable.
+	-Blog Personal / Web personal: Se ruega no publicar contenido ofensivo.
+	-Mail: Se recomienda el uso de esta dirección en exclusiva para cuestiones académicas.
+	-Nube personal: La responsabilidad sobre los archivos almacenados en este lugar corresponden al usuario propietario.
+					Se ruega no subir material que infrinja leyes de propiedad intelectual o que pueda ser ofensivo.
+	-Moodle: En la universidad Moodle representa la identidad académica de los alumnos. Usar con responsabilidad.

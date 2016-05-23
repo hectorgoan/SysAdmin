@@ -12,8 +12,8 @@ def login_page(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
-            username = request.POST['username']
-            password = str(request.POST['password'])
+            username = request.POST['username'].encode("utf-8")
+            password = str(request.POST['password'].encode("utf-8"))
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
@@ -64,8 +64,7 @@ def login_page(request):
 @login_required
 def homepage(request):
     return render_to_response('homepage.html',
-           context_instance=RequestContext(request))
-           
+           context_instance=RequestContext(request))        
            
 @login_required
 def settings_page(request):
@@ -73,9 +72,9 @@ def settings_page(request):
     if request.method == "POST":
     	form = SettingsForm(request.POST)
     	if form.is_valid():
-    		anEmail = form.cleaned_data['Email']
-    		aName = form.cleaned_data['Nombre']
-    		aDireccion = form.cleaned_data['Direccion']
+    		anEmail = form.cleaned_data['Email'].encode("utf-8")
+    		aName = form.cleaned_data['Nombre'].encode("utf-8")
+    		aDireccion = form.cleaned_data['Direccion'].encode("utf-8")
     		
     		if User.objects.filter(email=anEmail):
     			aHeader = "Error"
@@ -91,6 +90,12 @@ def settings_page(request):
     		request.user.email=anEmail
     		
     		request.user.save()
+    		
+    		aHash = "PasswdSupaSecret"
+    		cgiURL= "https://hectorgoan.noip.me/cgi-bin/changeEmailUserMoodle.pl?x=x&x=x&x=x"
+    		url = cgiURL
+    		payload = {'nick': request.user.username, 'email': anEmail, 'hash': aHash}
+    		r = requests.post(url, data=payload, verify=False)
     		
     		return redirect("https://hectorgoan.noip.me/miapp/settings/")
     else:
