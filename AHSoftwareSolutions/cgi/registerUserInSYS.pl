@@ -24,7 +24,7 @@ $_direccion = param('direccion');
 my $_rol;
 $_rol = param('rol');
 
-my $homePath ="/home/" . $_nick . "/";
+my $homePath ="/home/" . $_nick;
 mkdir $homePath;
 chmod(0701, $homePath);
 
@@ -39,19 +39,14 @@ if ($_rol eq "Profesor")
 my $user;
 $user=Linux::usermod->new($_nick );
 chown($user->get(uid), $user->get(gid), $homePath );
-copy("/etc/skel/condiciones.txt", $homePath . "condiciones.txt");
+copy("/etc/skel/condiciones.txt", $homePath . "/condiciones.txt");
 
-my $mailPath = $homePath."mail/";
-my $webPath = $homePath."public_html/";
-
-mkdir $mailPath;
+my $webPath = $homePath."/public_html/";
 mkdir $webPath;
 
-chmod(0755, $mailPath);
 chmod(0705, $webPath);
-
-chown($user->get(uid), $user->get(gid), $mailPath );
 chown($user->get(uid), $user->get(gid), $webPath );
+
 
 my $WebDir = "/etc/skel/public_html";
 

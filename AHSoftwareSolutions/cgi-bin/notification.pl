@@ -44,7 +44,7 @@ Un saludo.
 END_MSG
 
 #print "session error: $error" unless ($email!=-1);
-$mail->send(-to=>'hectorgoan@gmail.com', 
+$mail->send(-to=>'ahsoftsol@gmail.com', 
 			-subject=>'INICIO SESION ADMIN', 
 			-body=>$message);
 
