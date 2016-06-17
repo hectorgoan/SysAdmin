@@ -32,6 +32,7 @@ if ($_hash ne "PasswdSupaSecret")
 
 	
 #Notificación vía mail
+#DUMMY GMAIL ACCOUNT - NOTHING IMPORTANT HERE - REPLACE IT WITH YOUR'S
 my ($mail,$error)=Email::Send::SMTP::Gmail->new(-smtp=>'smtp.gmail.com', 
                                                 -login=>'ahsoftsol@gmail.com', 
                                                 -pass=>'USALdebian');

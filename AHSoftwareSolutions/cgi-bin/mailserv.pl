@@ -18,6 +18,7 @@ $rol = param('rol');
 my $_hash;
 $_hash = param('hash');
 
+#DUMMY GMAIL ACCOUNT - NOTHING IMPORTANT HERE - REPLACE IT WITH YOUR'S
 if ($_hash ne "SupaSecretPasswd") 
 {
 	die();
